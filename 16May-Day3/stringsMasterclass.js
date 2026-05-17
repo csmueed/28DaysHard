@@ -54,7 +54,39 @@ let convertedNum = myNum.toString;
 console.log(typeof convertedNum);
 console.log(typeof String);
 
-console.log(convertedNum.valueof());
+
+
+console.log("a">"b");
+console.log("mueed".localeCompare("ali"));
+
+let yourName = "jose";
+let smyName = "jose"
+console.log(yourName === myName);
+let nName = yourName.normalize();
+let mName = smyName.normalize();
+console.log(nName === mName);
+
+let appUser = "Abdul Mueed";
+let appUserAge = 20;
+let appUserCountry = "Pakistan"
+let messageUser = `Hello, Mr. ${appUser}, Your Age is ${appUserAge} and You are from a beautiful country of ${appUserCountry}`;
+console.log(messageUser);
+
+let myNumber = "ABC128 883X76"
+console.log(myNumber.match(/\s/));
+console.log(appUser.match(/\^"Abdul"/));
+
+let phneNum = "03009565002"
+console.log(phneNum.match(/\d{11}/));
+
+
+
+
+
+
+
+
+
 
 
 
