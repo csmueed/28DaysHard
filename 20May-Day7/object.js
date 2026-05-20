@@ -57,6 +57,16 @@ console.log(Object.entries(twitterUser));
 console.log(twitterUser.hasOwnProperty("username"));
 
 
+const productDetails = {
+    productName: "Smartphone",
+    productPrice: 27999,
+    productCode: "xre456yhf"
+};
+const {productName: pName} = productDetails;
+// console.log(productName);
+console.log(pName);
+
+
 
 
 
