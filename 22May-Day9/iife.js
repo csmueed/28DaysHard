@@ -11,3 +11,9 @@
 (() => {
   return console.log("Printed Successfuly");
 })();
+
+const result = (function () {
+  return console.log("Hello, World!");
+})();
+
+console.log(result);
