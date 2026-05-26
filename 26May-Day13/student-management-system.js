@@ -120,11 +120,17 @@ students.map((item) => {
 });
 
 function checkPassFail(item) {
-  let percentage = calculatePercentage(item);
-  let checking = percentage >= 50 ? "Pass" : "Fail";
-  return checking;
+  let checkFailedSubjects = Object.values(item.marks).filter((value) => {
+    return value < 50;
+  });
+  return checkFailedSubjects;
 }
-students.map((item) => {
-  let check = checkPassFail(item);
-  console.log(`The Student ${item.name} is ${check}`);
+
+students.forEach((item) => {
+  let checkFailPass = checkPassFail(item);
+  if (checkFailPass.length === 0) {
+    console.log(`${item.name} passed all subjects`);
+  } else {
+    console.log(`${item.name} failed with marks: ${checkFailPass}`);
+  }
 });
