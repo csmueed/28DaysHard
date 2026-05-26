@@ -63,10 +63,10 @@ const students = [
     isFeePaid: true,
     attendance: 95,
     marks: {
-      CS101: 85,
-      MTH101: 73,
-      PAK301: 71,
-      PHY101: 80,
+      CS101: 5,
+      MTH101: 3,
+      PAK301: 7,
+      PHY101: 8,
     },
   },
 ];
@@ -98,4 +98,33 @@ students.map((item) => {
   return console.log(`${item.name} - ${percentage}%`);
 });
 
+function assignGrade(item) {
+  let percentage = calculatePercentage(item);
+  if (percentage >= 90) {
+    return `Percentage is ${percentage}% and Grade is A.`;
+  } else if (percentage >= 80 && percentage < 90) {
+    return `Percentage is ${percentage}% and Grade is B.`;
+  } else if (percentage >= 70 && percentage < 80) {
+    return `Percentage is ${percentage}% and Grade is C.`;
+  } else if (percentage >= 60 && percentage < 70) {
+    return `Percentage is ${percentage}% and Grade is D.`;
+  } else if (percentage >= 50 && percentage < 60) {
+    return `Percentage is ${percentage}% and Grade is E.`;
+  } else if (percentage < 50) {
+    return `Percentage is ${percentage}% and Grade is F.`;
+  }
+}
+students.map((item) => {
+  let Grade = assignGrade(item);
+  console.log(Grade);
+});
 
+function checkPassFail(item) {
+  let percentage = calculatePercentage(item);
+  let checking = percentage >= 50 ? "Pass" : "Fail";
+  return checking;
+}
+students.map((item) => {
+  let check = checkPassFail(item);
+  console.log(`The Student ${item.name} is ${check}`);
+});
