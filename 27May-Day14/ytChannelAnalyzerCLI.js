@@ -131,3 +131,13 @@ videos.forEach((item) => {
     `${item.id} - ${item.title} - ${item.category} - ${item.views} - ${monitizeCheck}`,
   );
 });
+
+//Requirement 2: Calculate Revenue of One Video.
+
+function calculateRevenue(item) {
+  let views = item.views;
+  let rpm = item.rpm;
+  let revenue = (views / 1000) * rpm;
+  return console.log(`The Revenue of this video is ${revenue}`);
+}
+calculateRevenue(videos[0]);
