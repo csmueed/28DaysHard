@@ -134,3 +134,12 @@ students.forEach((item) => {
     console.log(`${item.name} failed with marks: ${checkFailPass}`);
   }
 });
+
+students.forEach((item) => {
+  let fail = checkPassFail(item);
+  if (fail.length === 0) return;
+  else {
+    console.log(`${item.name} failed`);
+  }
+});
+
