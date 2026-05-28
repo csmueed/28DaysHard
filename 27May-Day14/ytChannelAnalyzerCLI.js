@@ -168,5 +168,26 @@ console.log(
   `${mostEarningVideo.id} - ${mostEarningVideo.title} - ${mostEarningVideo.views} - $${mostEarningVideo.rpm} - $${calculateRevenue(mostEarningVideo)}`,
 );
 
+videos.forEach((item) => {
+  if (item.isMonetized == true) {
+    console.log(`${item.id} - ${item.title}`);
+  } else return;
+});
+
+const monitizeFilter = videos.filter((item) => {
+  return item.isMonetized;
+});
+monitizeFilter.forEach((item, index) => {
+  console.log(`${index + 1} - ${item.title}`);
+});
+
+console.log("---");
+
+let lowViewedVideos = videos.filter((item) => {
+  return item.views < 40000;
+});
+lowViewedVideos.forEach((value) => {
+  console.log(`${value.id} - ${value.title} - ${value.views}`);
+});
 
 
