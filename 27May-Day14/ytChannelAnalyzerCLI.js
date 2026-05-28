@@ -138,6 +138,35 @@ function calculateRevenue(item) {
   let views = item.views;
   let rpm = item.rpm;
   let revenue = (views / 1000) * rpm;
-  return console.log(`The Revenue of this video is ${revenue}`);
+  return revenue;
 }
-calculateRevenue(videos[0]);
+console.log(calculateRevenue(videos[0]));
+
+videos.forEach((item) => {
+  let calculate = calculateRevenue(item);
+  console.log(`${item.id} - ${item.title} - $${calculate.toFixed(2)}`);
+});
+
+let totalRevenue = videos.reduce((acc, val) => {
+  let calculate = calculateRevenue(val);
+  return acc + calculateRevenue(val);
+}, 0);
+console.log(`$${totalRevenue}`);
+
+const mostViewedVideo = videos.reduce((max, current) => {
+  return current.views > max.views ? current : max;
+});
+console.log(
+  `${mostViewedVideo.id} - ${mostViewedVideo.title} - $${mostViewedVideo.views}`,
+);
+
+const mostEarningVideo = videos.reduce((max, current) => {
+  return calculateRevenue(current) > calculateRevenue(max) ? current : max;
+});
+console.log(`---Most Earning Video---`);
+console.log(
+  `${mostEarningVideo.id} - ${mostEarningVideo.title} - ${mostEarningVideo.views} - $${mostEarningVideo.rpm} - $${calculateRevenue(mostEarningVideo)}`,
+);
+
+
+
