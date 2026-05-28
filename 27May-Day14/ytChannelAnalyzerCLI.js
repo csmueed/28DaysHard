@@ -189,5 +189,25 @@ let lowViewedVideos = videos.filter((item) => {
 lowViewedVideos.forEach((value) => {
   console.log(`${value.id} - ${value.title} - ${value.views}`);
 });
+let myTitle = "IN";
+
+// let orignalTitle = videos.map((item)=>{
+//   let finalTitle = item.title.toLowerCase();
+//   return finalTitle;
+// });
+// console.log(orignalTitle);
+
+// let checkTitle = orignalTitle.filter((item)=>{
+//   return item.includes(myTitle.toLowerCase());
+// });
+
+// console.log(checkTitle);
+
+let checkTitle = videos.filter((item) => {
+  return item.title.toLowerCase().includes(myTitle.toLowerCase());
+});
+checkTitle.forEach((item) => {
+  console.log(`${item.id} ---__-- ${item.title}`);
+});
 
 
