@@ -123,16 +123,12 @@ const videos = [
   },
 ];
 
-// Requirement 1: Show All Videos
-
 videos.forEach((item) => {
   let monitizeCheck = item.isMonetized == true ? "Monitized" : "Not Monitized";
   console.log(
     `${item.id} - ${item.title} - ${item.category} - ${item.views} - ${monitizeCheck}`,
   );
 });
-
-//Requirement 2: Calculate Revenue of One Video.
 
 function calculateRevenue(item) {
   let views = item.views;
@@ -260,4 +256,3 @@ console.log(`Detailed Category Performance`);
 Object.entries(finalGCP).forEach(([key, value]) => {
   console.log(`${key} --- ${value} views`);
 });
-
