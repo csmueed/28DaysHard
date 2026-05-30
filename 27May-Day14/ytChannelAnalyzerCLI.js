@@ -16,7 +16,7 @@ const videos = [
   {
     id: 2,
     title: "How to Bake the Perfect Sourdough",
-    category: "Cooking",
+    category: "Geopolitics",
     views: 45000,
     likes: 3200,
     comments: 210,
@@ -52,7 +52,7 @@ const videos = [
   {
     id: 5,
     title: "Top 10 Hidden Gems in Italy",
-    category: "Travel",
+    category: "Programming",
     views: 34000,
     likes: 1900,
     comments: 120,
@@ -76,7 +76,7 @@ const videos = [
   {
     id: 7,
     title: "Meditation for Beginners",
-    category: "Wellness",
+    category: "Technology",
     views: 28000,
     likes: 1500,
     comments: 85,
@@ -100,7 +100,7 @@ const videos = [
   {
     id: 9,
     title: "Building a PC on a Budget",
-    category: "Tech Tutorial",
+    category: "Technology",
     views: 112000,
     likes: 6900,
     comments: 780,
@@ -112,7 +112,7 @@ const videos = [
   {
     id: 10,
     title: "Daily Vlog: Tokyo Edition",
-    category: "Vlog",
+    category: "Technology",
     views: 51000,
     likes: 2400,
     comments: 310,
@@ -212,7 +212,7 @@ checkTitle.forEach((item) => {
 
 // let sortedVideos = videos.sort((a,b)=> a.views - b.views);
 
-const sortedVideos = videos.sort((a, b) => {
+const sortedVideos = [...videos].sort((a, b) => {
   let views = b.views - a.views;
   return views;
 });
@@ -236,9 +236,28 @@ videos.forEach((item) => {
   }
 });
 
-const averageRPM = videos.reduce((acc,value)=>{
-  return (acc + value.rpm);
-  ;
-},0)
+const averageRPM = videos.reduce((acc, value) => {
+  return acc + value.rpm;
+}, 0);
 const calculateAvgRPM = averageRPM / videos.length;
 console.log(calculateAvgRPM.toFixed(2));
+
+function getCategoryPerformance(videos) {
+  let summary = {};
+  videos.forEach((video) => {
+    const category = video.category;
+    const views = video.views;
+    if (summary[category] === undefined) {
+      summary[category] = views;
+    } else summary[category] += views;
+  });
+  return summary;
+}
+
+let finalGCP = getCategoryPerformance(videos);
+console.log(`Detailed Category Performance`);
+
+Object.entries(finalGCP).forEach(([key, value]) => {
+  console.log(`${key} --- ${value} views`);
+});
+
