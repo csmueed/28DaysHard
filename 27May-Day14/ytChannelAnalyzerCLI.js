@@ -210,4 +210,35 @@ checkTitle.forEach((item) => {
   console.log(`${item.id} ---__-- ${item.title}`);
 });
 
+// let sortedVideos = videos.sort((a,b)=> a.views - b.views);
 
+const sortedVideos = videos.sort((a, b) => {
+  let views = b.views - a.views;
+  return views;
+});
+// console.log(sortedVideos);
+sortedVideos.forEach((item) => {
+  console.log(`Sorting: ${item.title} - ${item.title} - ${item.views}`);
+});
+
+function engagementRate(item) {
+  let calculate = ((item.likes + item.comments) / item.views) * 100;
+  return calculate;
+}
+videos.forEach((item) => {
+  let final = engagementRate(item);
+  console.log(`ER: ${item.title} --- ${final.toFixed(2)}%`);
+});
+videos.forEach((item) => {
+  let final = engagementRate(item);
+  if (final > 5) {
+    console.log(`ER+: ${item.title} - ${final.toFixed(2)}%`);
+  }
+});
+
+const averageRPM = videos.reduce((acc,value)=>{
+  return (acc + value.rpm);
+  ;
+},0)
+const calculateAvgRPM = averageRPM / videos.length;
+console.log(calculateAvgRPM.toFixed(2));
