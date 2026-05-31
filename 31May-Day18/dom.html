@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Object Model</title>
+  </head>
+  <body>
+    <div id="myDiv" class="newDiv">
+      Lorem ipsum dolor sit amet consectetur adipisicing.
+    </div>
+    <h1>test</h1>
+    <h3 class="cNam">
+      Lorem ipsum dolor sit amet. <span class="dNam">Lorem, ipsum dolor.</span>
+    </h3>
+  </body>
+  <script>
+    const myDiv = document.querySelector("#myDiv");
+    myDiv.style.backgroundColor = "red";
+    myDiv.textContent = "change content";
+
+    const newDiv = document.createElement("div");
+    newDiv.textContent = "Hello this is new div";
+    newDiv.style.backgroundColor = "green";
+    newDiv.style.padding = "15px";
+    document.body.append(newDiv);
+
+    const test = document.querySelector("h1");
+    test.remove();
+
+    const newTest = document.querySelector("h3");
+    // newTest.setAttribute("id", "check");
+    // console.log(newTest)
+    const checking = newTest.getAttribute("class");
+    console.log(checking);
+
+    const myh1 = document.createElement("h1");
+    myh1.innerHTML = "hello testing h1 mueed cs";
+    document.body.append(myh1);
+  </script>
+</html>
