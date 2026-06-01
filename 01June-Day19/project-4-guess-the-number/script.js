@@ -11,21 +11,26 @@ let guessRemain = 10;
 submit.addEventListener("click", (e) => {
   e.preventDefault();
   const myValue = parseInt(guessField.value);
-  if (myValue === randomNumber) {
-    result.textContent = `Congrats, You Guess it right, the number was ${randomNumber}`;
-    guessRemain = guessRemain - 1;
-    lastResult.textContent = guessRemain;
-    submit.disabled = true;
-  } else if (myValue > randomNumber) {
-    result.textContent = `Too High`;
-    guessRemain = guessRemain - 1;
-    lastResult.textContent = guessRemain;
-  } else if (myValue < randomNumber) {
-    result.textContent = `Too Low`;
-    guessRemain = guessRemain - 1;
-    lastResult.textContent = guessRemain;
+  if (myValue >= 1 && myValue <= 100) {
+    if (myValue === randomNumber) {
+      result.textContent = `Congrats, You Guess it right, the number was ${randomNumber}`;
+      guessRemain = guessRemain - 1;
+      lastResult.textContent = guessRemain;
+      submit.disabled = true;
+    } else if (myValue > randomNumber) {
+      result.textContent = `Too High`;
+      guessRemain = guessRemain - 1;
+      lastResult.textContent = guessRemain;
+    } else if (myValue < randomNumber) {
+      result.textContent = `Too Low`;
+      guessRemain = guessRemain - 1;
+      lastResult.textContent = guessRemain;
+    } else {
+      result.textContent = `Please Write a Number`;
+    }
   } else {
-    result.textContent = `Please Write a Number`;
+    alert("Please Enter Number according to guidlines");
+    guessField.value = "";
   }
 
   guesses.textContent += `${myValue}, `;

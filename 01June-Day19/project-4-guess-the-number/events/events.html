@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Events</title>
+  </head>
+  <body>
+    <div class="parent" style="background-color: red;">
+        <button id="btn">click me</button>
+    </div>
+  </body>
+  <script>
+    const button = document.querySelector("#btn");
+    const parent = document.querySelector(".parent");
+    button.addEventListener(
+      "click",
+      (e) => {
+        console.log(e);
+        console.log(e.target);
+        console.log(e.type);
+        console.log(e.timeStamp);
+        console.log(e.defaultPrevented);
+        console.log(e.currentTarget);
+        console.log(e.clientX);
+        console.log(e.clientY);
+        console.log(e.screenX);
+        console.log(e.screenY);
+        console.log(e.altKey);
+        console.log(e.ctrlKey);
+        console.log(e.shiftKey);
+        console.log(e.key);
+      },
+      false,
+    );
+    document.addEventListener("keydown", (e) => {
+  console.log(e.key);
+});
+  </script>
+</html>
