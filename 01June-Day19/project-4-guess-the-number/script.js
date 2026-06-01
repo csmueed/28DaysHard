@@ -1,4 +1,4 @@
-const form = document.querySelector("#form");
+const form = document.querySelector(".form");
 const guessField = document.querySelector("#guessField");
 const submit = document.querySelector("#subt");
 let guesses = document.querySelector(".guesses");
