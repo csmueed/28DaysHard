@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More DOM Events</title>
+    <style>
+        .container {
+            background-color: green;
+        }
+        .child {
+            background-color: red;
+        }
+        .two {
+            background-color: blue;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p class="child one">Lorem, ipsum dolor.</p>
+      <p class="child two">Lorem, ipsum dolor.</p>
+      <p class="child three">Lorem, ipsum dolor.</p>
+    </div>
+  </body>
+  <script>
+    const container = document.querySelector(".container");
+    const two = document.querySelector(".two");
+
+    container.addEventListener("click", (e) => {
+      console.log("container clicked");
+      console.log(e.target.tagName);
+    });
+    
+    two.addEventListener("click", (e) => {
+      console.log("two clicked");
+      e.stopPropagation();
+      let removeIt = (e.target.parentNode);
+    //   removeIt.remove();
+    let removeTwo = e.target;
+    removeTwo.remove();
+    });
+  </script>
+</html>
