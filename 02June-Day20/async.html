@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Async JavaScript</title>
+  </head>
+  <body>
+    <h1>Abdul Mueed</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+    const h1 = document.querySelector("h1");
+    let changeName = function () {
+      h1.textContent = "Computer Science";
+      h1.style.backgroundColor = "red";
+      console.log("Changed!");
+    };
+    let myTimeout;
+    //  start.addEventListener("click", (e) => {
+    //     myTimeout = setTimeout(changeName, 2000);
+    // });
+    // stop.addEventListener("click", (e) => {
+    //   clearTimeout(myTimeout);
+    //   console.log("Stopped!");
+    // });
+
+    let myInterval;
+    start.addEventListener("click", (e) => {
+      myInterval = setInterval(changeName, 1000);
+      console.log("Started");
+    });
+    stop.addEventListener("click", (e) => {
+      clearInterval(myInterval);
+      console.log("Stopped");
+    });
+  </script>
+</html>
