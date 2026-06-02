@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML HTTP Request</title>
+  </head>
+  <style>
+    .card {
+      background-color: red;
+      color: yellow;
+      padding: 10px;
+      font-size: 32px;
+      font-weight: bolder;
+    }
+  </style>
+  <body>
+    <h1>Mueed</h1>
+    <div class="card"></div>
+  </body>
+  <script>
+    const card = document.querySelector(".card");
+    const url = "https://api.github.com/users/octocat";
+    const myRequest = new XMLHttpRequest();
+    myRequest.open("GET", url);
+    myRequest.onreadystatechange = function () {
+      if (myRequest.readyState === 4) {
+        const data = JSON.parse(myRequest.responseText);
+        card.innerHTML = `
+            <p>ID: ${data.id}</p>
+            <p>Username: ${data.login}</p>
+            <p>Followers: ${data.followers}</p>
+            <p>Name: ${data.name}</p>
+`;
+      }
+    };
+
+    myRequest.send();
+  </script>
+</html>
