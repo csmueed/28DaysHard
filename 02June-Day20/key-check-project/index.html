@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Check</title>
+    <style>
+      .display {
+        color: red;
+        background-color: yellow;
+        width: 100vw;
+        height: 100vh;
+        font-size: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="display"></div>
+  </body>
+  <script>
+    const display = document.querySelector(".display");
+    window.addEventListener("keydown", (e) => {
+      console.log(e.key);
+      display.textContent = `You Pressed the ${e.key}`;
+    });
+  </script>
+</html>
