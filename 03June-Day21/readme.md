@@ -1,0 +1,1 @@
+Learned about promise, fetch and api but forgot to do code only did theory that's why no push on github on 3rd June.
