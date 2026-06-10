@@ -1,0 +1,1 @@
+today is day 28 last day of challenge but i did not complete javascirpt although completed js 90% html mostly and basic css, because of mid term i was not able to complete it but after exams i will do it completely within few days.
